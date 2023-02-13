@@ -10,10 +10,15 @@
     <h1>Canciones</h1>
 
     <ul>
-        @foreach ($songs as $song)
-            <li>{{ $song['cancion'] }} - {{ $song['artista'] }}</li>
+        @foreach ($songs as $s)
+            <li>{{ $s['nombre'] }} - {{ $s['artista'] }}</li>
         @endforeach
     </ul>
+
+    @if(!is_null($song))
+        <h2>{{ $song['nombre'] }}</h2>
+        <h2>{{ $song['artista'] }}</h2>
+    @endif
 
 </body>
 </html>

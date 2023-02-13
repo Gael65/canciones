@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\SongsController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,49 +17,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('canciones', [SongsController::class, 'songs']);
-
 Route::get('canciones/{id?}', function ($id = null) {
-    // $canciones = [];
-    // $canciones = ['cancion' => 'Daylight', 'artista' => 'Harry Styles'];
-    // $canciones = ['cancion' => 'Defenceless', 'artista' => 'Louis Tomlinson'];
 
-    $canciones = [
-                [
-                    'cancion' => 'Woman',
-                    'artista' => 'John Lennon'
-                ],
-                [
-                    'cancion' => 'Daylight',
-                    'artista' => 'Harry Styles'
-                ],
-                [
-                    'cancion' => 'Defenceless',
-                    'artista' => 'Louis Tomlinson'
-                ]
-    ];
+    $songs = [['nombre' => 'Woman', 'artista' => 'John Lennon'],
+                ['nombre' => 'Daylight','artista' => 'Harry Styles'],
+                ['nombre' => 'Defenceless','artista' => 'Louis Tomlinson']];
 
-    $cancion = $canciones[$id];
-
-    return view('detalles-cancion', compact('cancion'));
+    if(!is_null($id)) {
+        $song = $songs[$id];
+    }
+    else {
+        $song = null;
+    }
+    
+    return view('canciones', compact('songs', 'song'));
 });
-
-// Route::get('/canciones', function () {
-
-//     $songs = [
-//         [
-//             'cancion' => 'Woman',
-//             'artista' => 'John Lennon'
-//         ],
-//         [
-//             'cancion' => 'Daylight',
-//             'artista' => 'Harry Styles'
-//         ],
-//         [
-//             'cancion' => 'Defenceless',
-//             'artista' => 'Louis Tomlinson'
-//         ]
-//     ];
-
-//     return view('/canciones', ['songs' => $songs]);
-// });
