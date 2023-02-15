@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaginasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,18 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('canciones/{id?}', function ($id = null) {
+Route::get('canciones/{id?}', [PaginasController::class, 'canciones']);
 
-    $songs = [['nombre' => 'Woman', 'artista' => 'John Lennon'],
-                ['nombre' => 'Daylight','artista' => 'Harry Styles'],
-                ['nombre' => 'Defenceless','artista' => 'Louis Tomlinson']];
+Route::get('contacto', [PaginasController::class, 'contacto']);
 
-    if(!is_null($id)) {
-        $song = $songs[$id];
-    }
-    else {
-        $song = null;
-    }
-    
-    return view('canciones', compact('songs', 'song'));
-});
+Route::post('contacto', [PaginasController::class, 'postContacto']);

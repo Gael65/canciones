@@ -9,15 +9,15 @@
 <body>
     <h1>Canciones</h1>
 
-    <ul>
-        @foreach ($songs as $s)
-            <li>{{ $s['nombre'] }} - {{ $s['artista'] }}</li>
-        @endforeach
-    </ul>
-
     @if(!is_null($song))
         <h2>{{ $song['nombre'] }}</h2>
         <h2>{{ $song['artista'] }}</h2>
+    @else
+        <ul>
+            @foreach ($songs as $s)
+                <li>{{ $s['nombre'] }} - {{ $s['artista'] }}</li>
+            @endforeach
+        </ul>
     @endif
 
 </body>
