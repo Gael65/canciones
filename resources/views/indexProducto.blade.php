@@ -9,11 +9,16 @@
 <body>
     
     <h1>Productos</h1>
-    <ul>
-        @foreach
-            <li>{{ $prod->id }} - {{ $prod->nombre }}</li>
-        @endforeach
-    </ul>
+    
+    @foreach($productos as $prod)
+
+        <ul>
+            @foreach(json_decode($prod->images, true)['img'] as $img)
+                <li>{{ $img }}</li>
+            @endforeach
+        </ul>
+      
+    @endforeach
 
 </body>
 </html>

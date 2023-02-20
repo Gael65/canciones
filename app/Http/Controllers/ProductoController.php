@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Producto;
 
 class ProductoController extends Controller
 {
@@ -15,9 +16,9 @@ class ProductoController extends Controller
     {
         $productos = Producto::all();
 
-        dd($productos);
+        // dd($productos);
 
-        return view('productos.indexProducto', compact('productos'));
+        return view('indexProducto', compact('productos'));
     }
 
     /**

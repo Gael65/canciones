@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Query\Expression;
 
 return new class extends Migration
 {
@@ -19,6 +20,7 @@ return new class extends Migration
             $table->text('descripcion');
             $table->decimal('costo', 8, 2)->nullable();
             $table->integer('stock')->default(0);
+            $table->json('images')->default(new Expression('(JSON_ARRAY())'));
             $table->timestamps();
         });
     }
