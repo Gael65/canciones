@@ -9,7 +9,7 @@
 <body>
     <h1>Crear Producto</h1>
 
-    <form action="" method="POST">
+    <form action="/producto" method="POST">
         @csrf 
 
         <label for="nombre">Nombre</label><br>
@@ -30,10 +30,19 @@
 
         <br>
 
-        <label for="descripcion">Costo</label><br>
+        <label for="costo">Costo</label><br>
         <input type="text" name="costo" id="costo"><br>
 
         @error('costo')
+            <h5>{{ $message }}</h5>
+        @enderror
+
+        <br>
+
+        <label for="stock">Stock</label><br>
+        <input type="number" name="stock" id="stock"><br>
+
+        @error('stock')
             <h5>{{ $message }}</h5>
         @enderror
 

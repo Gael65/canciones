@@ -11,13 +11,13 @@
     <h1>Productos</h1>
     
     @foreach($productos as $prod)
-
-        <ul>
-            @foreach(json_decode($prod->images, true)['img'] as $img)
-                <li>{{ $img }}</li>
-            @endforeach
-        </ul>
-      
+    <h4>Producto</h4>
+    <ul>
+        <li>Nombre: {{ $prod->nombre }}</li>
+        <li>Descripcion: {{ $prod->descripcion }}</li>
+        <li>Costo: {{ $prod->costo }}</li>
+        <li>Stock: {{ $prod->stock }}</li>
+    </ul>
     @endforeach
 
 </body>

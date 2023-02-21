@@ -14,11 +14,12 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $productos = Producto::all();
+        // $productos = Producto::get();
+        $productos = Producto::get();
 
         // dd($productos);
 
-        return view('indexProducto', compact('productos'));
+        return view('producto.indexProducto', compact('productos'));
     }
 
     /**
@@ -28,7 +29,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        return view('createProducto');
+        return view('producto.createProducto');
     }
 
     /**
@@ -57,7 +58,7 @@ class ProductoController extends Controller
 
         $producto->save();
 
-        return redirect('indexProducto');
+        return redirect('producto');
     }
 
     /**
