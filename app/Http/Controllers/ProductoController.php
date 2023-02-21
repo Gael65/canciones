@@ -15,7 +15,7 @@ class ProductoController extends Controller
     public function index()
     {
         // $productos = Producto::get();
-        $productos = Producto::get();
+        $productos = Producto::all();
 
         // dd($productos);
 
